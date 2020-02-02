@@ -1,27 +1,27 @@
 {
   "files": {
-    "main.css": "/static/css/main.e7febe16.chunk.css",
-    "main.js": "/static/js/main.3dbb00da.chunk.js",
-    "main.js.map": "/static/js/main.3dbb00da.chunk.js.map",
-    "runtime-main.js": "/static/js/runtime-main.abc9160b.js",
-    "runtime-main.js.map": "/static/js/runtime-main.abc9160b.js.map",
-    "static/css/2.5f2f5f0e.chunk.css": "/static/css/2.5f2f5f0e.chunk.css",
-    "static/js/2.cad6086c.chunk.js": "/static/js/2.cad6086c.chunk.js",
-    "static/js/2.cad6086c.chunk.js.map": "/static/js/2.cad6086c.chunk.js.map",
-    "index.html": "/index.html",
-    "precache-manifest.212625f1ebf632160b1bea93c673cc48.js": "/precache-manifest.212625f1ebf632160b1bea93c673cc48.js",
-    "service-worker.js": "/service-worker.js",
-    "static/css/2.5f2f5f0e.chunk.css.map": "/static/css/2.5f2f5f0e.chunk.css.map",
-    "static/css/main.e7febe16.chunk.css.map": "/static/css/main.e7febe16.chunk.css.map",
-    "static/js/2.cad6086c.chunk.js.LICENSE": "/static/js/2.cad6086c.chunk.js.LICENSE",
-    "static/media/astar-algorithm-screenshot.jpg": "/static/media/astar-algorithm-screenshot.bb8c8dc4.jpg",
-    "static/media/semantic.min.css": "/static/media/outline-icons.ef60a4f6.woff"
+    "main.css": "/js-visualize/static/css/main.e7febe16.chunk.css",
+    "main.js": "/js-visualize/static/js/main.87414ad2.chunk.js",
+    "main.js.map": "/js-visualize/static/js/main.87414ad2.chunk.js.map",
+    "runtime-main.js": "/js-visualize/static/js/runtime-main.54f6993d.js",
+    "runtime-main.js.map": "/js-visualize/static/js/runtime-main.54f6993d.js.map",
+    "static/css/2.5e870e19.chunk.css": "/js-visualize/static/css/2.5e870e19.chunk.css",
+    "static/js/2.cad6086c.chunk.js": "/js-visualize/static/js/2.cad6086c.chunk.js",
+    "static/js/2.cad6086c.chunk.js.map": "/js-visualize/static/js/2.cad6086c.chunk.js.map",
+    "index.html": "/js-visualize/index.html",
+    "precache-manifest.2639d69f6a3f9ba4748ef117d7dd92b8.js": "/js-visualize/precache-manifest.2639d69f6a3f9ba4748ef117d7dd92b8.js",
+    "service-worker.js": "/js-visualize/service-worker.js",
+    "static/css/2.5e870e19.chunk.css.map": "/js-visualize/static/css/2.5e870e19.chunk.css.map",
+    "static/css/main.e7febe16.chunk.css.map": "/js-visualize/static/css/main.e7febe16.chunk.css.map",
+    "static/js/2.cad6086c.chunk.js.LICENSE": "/js-visualize/static/js/2.cad6086c.chunk.js.LICENSE",
+    "static/media/astar-algorithm-screenshot.jpg": "/js-visualize/static/media/astar-algorithm-screenshot.bb8c8dc4.jpg",
+    "static/media/semantic.min.css": "/js-visualize/static/media/outline-icons.ef60a4f6.woff"
   },
   "entrypoints": [
-    "static/js/runtime-main.abc9160b.js",
-    "static/css/2.5f2f5f0e.chunk.css",
+    "static/js/runtime-main.54f6993d.js",
+    "static/css/2.5e870e19.chunk.css",
     "static/js/2.cad6086c.chunk.js",
     "static/css/main.e7febe16.chunk.css",
-    "static/js/main.3dbb00da.chunk.js"
+    "static/js/main.87414ad2.chunk.js"
   ]
 }
