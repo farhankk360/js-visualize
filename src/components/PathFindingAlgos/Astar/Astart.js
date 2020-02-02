@@ -432,7 +432,7 @@ export default class Astar extends Component {
           header="Info"
           list={[
             <a
-              href="https://github.com/farhankk360"
+              href="https://github.com/farhankk360/js-visualize/blob/master/src/components/PathFindingAlgos/Astar/Astart.js"
               target="_blank"
               without
               rel="noopener noreferrer"
