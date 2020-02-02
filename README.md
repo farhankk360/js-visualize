@@ -1,6 +1,6 @@
 ## Js Visualize
 
-See it live here: [https://farhankk360.github.io/js-visualize](https://farhankk360.github.io/js-visualize)
+See it live here: [https://farhankk360.github.io/js-visualize/](https://farhankk360.github.io/js-visualize/)
 
 To start, In the project directory, you can run:
 
