@@ -7,7 +7,6 @@ export default class HeaderComponent extends Component {
   state = { fixed: true };
 
   render() {
-    const { children } = this.props;
     const { fixed } = this.state;
     return (
       <Menu
@@ -25,7 +24,7 @@ export default class HeaderComponent extends Component {
 
         <Menu.Item
           as={Link}
-          to="/"
+          to={process.env.PUBLIC_URL + "/"}
           active
           style={{ marginTop: 0, fontSize: "18px" }}
         >

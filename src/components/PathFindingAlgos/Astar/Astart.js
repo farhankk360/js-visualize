@@ -1,5 +1,12 @@
 import React, { Component } from "react";
-import { Segment, Icon, Button, Header, Message } from "semantic-ui-react";
+import {
+  Segment,
+  Icon,
+  Button,
+  Header,
+  Message,
+  Loader
+} from "semantic-ui-react";
 import * as d3 from "d3";
 
 const rows = 30;
@@ -141,16 +148,16 @@ export default class Astar extends Component {
   prepareTiles = (rows, cols) => {
     let tiles = this.generateTiles(rows, cols);
 
-    const row = this.tilesMap
+    this.tilesMap
+      //Rows
       .append("svg")
       .attr("viewBox", "0 0 1632 761")
       .selectAll(".row")
       .data(tiles)
       .enter()
       .append("g")
-      .attr("class", "row");
-
-    const column = row
+      .attr("class", "row")
+      //Cols
       .selectAll(".square")
       .data(tile => tile)
       .enter()
@@ -397,7 +404,12 @@ export default class Astar extends Component {
             <Header.Subheader className="desc">
               Create obstacles by drawing on the grid. <br />
               Blue(start) and Orange(end) points can be moved around.{" "}
-              <small>Have fun &#128526;</small>
+              <small>
+                Have fun{" "}
+                <span role="img" aria-label="Smile with glasses">
+                  &#128526;
+                </span>
+              </small>
             </Header.Subheader>
           </Header>
           <div className="btns" style={{ marginBottom: "20px" }}>
@@ -417,7 +429,9 @@ export default class Astar extends Component {
               <Icon name={begin ? "stop" : "play"} color="blue" />
               {begin ? "Stop" : "Start"}
             </Button>
-
+            {begin && (
+              <Loader active inline style={{ margin: "0 10px 0 10px" }} />
+            )}
             <Button icon labelPosition="left" onClick={this.reset}>
               <Icon name="refresh" color="orange" />
               Reset
@@ -432,19 +446,20 @@ export default class Astar extends Component {
           header="Info"
           list={[
             <a
+              key="source_code"
               href="https://github.com/farhankk360/js-visualize/blob/master/src/components/PathFindingAlgos/Astar/Astart.js"
               target="_blank"
-              without
+              without="true"
               rel="noopener noreferrer"
             >
               Source code
             </a>,
-            <p>
+            <p key="wiki_link">
               More information Astar search algorithm{" "}
               <a
                 href="https://en.wikipedia.org/wiki/A*_search_algorithm "
                 target="_blank"
-                without
+                without="true"
                 rel="noopener noreferrer"
               >
                 Wiki

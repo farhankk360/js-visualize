@@ -17,7 +17,7 @@ export default class FooterComponent extends Component {
               <a
                 href="https://github.com/farhankk360"
                 target="_blank"
-                without
+                without="true"
                 rel="noopener noreferrer"
               >
                 Farhan Ullah
@@ -29,7 +29,7 @@ export default class FooterComponent extends Component {
             <a
               href="https://reactjs.org/"
               target="_blank"
-              without
+              without="true"
               rel="noopener noreferrer"
             >
               React
@@ -38,7 +38,7 @@ export default class FooterComponent extends Component {
             <a
               href="https://d3js.org/"
               target="_blank"
-              without
+              without="true"
               rel="noopener noreferrer"
             >
               D3
@@ -47,7 +47,7 @@ export default class FooterComponent extends Component {
             <a
               href="https://react.semantic-ui.com/"
               target="_blank"
-              without
+              without="true"
               rel="noopener noreferrer"
             >
               Semantic UI

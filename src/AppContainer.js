@@ -72,7 +72,7 @@ class AppContainer extends Component {
                           <Menu.Item
                             key={`${j}-${route.path}`}
                             as={Link}
-                            to={route.path}
+                            to={process.env.PUBLIC_URL + route.path}
                             active={location.pathname.includes(route.path)}
                           >
                             {route.name}
@@ -105,7 +105,9 @@ class AppContainer extends Component {
             <Switch>
               <Route
                 exact
-                path="/"
+                path={
+                  process.env.PUBLIC_URL ? process.env.PUBLIC_URL + "/" : "/"
+                }
                 render={() => <HomeContainer {...this.props} />}
               />
 
@@ -113,7 +115,11 @@ class AppContainer extends Component {
                 section.routes.map(route => (
                   <Route
                     exact
-                    path={route.path}
+                    path={
+                      process.env.PUBLIC_URL
+                        ? process.env.PUBLIC_URL + route.path
+                        : route.path
+                    }
                     render={props => route.component(props)}
                   />
                 ))

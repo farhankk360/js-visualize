@@ -10,7 +10,9 @@ export default class HomeContainer extends Component {
           <Grid.Column>
             <Segment
               textAlign="center"
-              onClick={() => this.props.history.push("/astar")}
+              onClick={() =>
+                this.props.history.push(process.env.PUBLIC_URL + "/astar")
+              }
               style={{ cursor: "pointer" }}
             >
               <Header as="h3" className="title">
