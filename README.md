@@ -13,5 +13,9 @@ Built using [React](https://reactjs.org/), [D3](https://d3js.org/), [Semantic UI
 Algorithms added so far:
 - Astar searching:
 
-![Astar path finding in action](https://www.dropbox.com/s/twb7pq488vj0oza/astar.gif?raw=1)
+![Astar path finding in action](https://github.com/farhankk360/js-visualize/blob/master/src/assets/astar/astar.gif)
+
+- Bubble sort with d3 force:
+
+![Bubble sort with d3 force and bubble chart](https://github.com/farhankk360/js-visualize/blob/master/src/assets/bubble-sort/bubble-sort.gif)
 ---
