@@ -35,3 +35,25 @@
   margin: 74px 10px 10px 10px !important;
   transition: all 0.1s ease;
 }
+
+.responsive-svg-container {
+  max-width: 1632px; 
+  max-height: 761px; 
+  margin: 0px auto;
+}
+
+.visual-array{
+  background-color: darken($color: #242424, $amount: 0) !important;
+  width: fit-content ;
+  margin: auto !important;
+  color: white !important;
+  opacity: 0.9;
+   pre{
+    text-align: center;
+    font-size: 24px;
+    font-weight: 300;
+      .array-element {
+        color: #2196f3;
+      }
+   }
+}

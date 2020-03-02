@@ -378,7 +378,7 @@ export default class Astar extends Component {
         }
       }
 
-      await new Promise(resolve => setTimeout(resolve), 500);
+      await new Promise(resolve => setTimeout(resolve, 5));
     }
   };
 
@@ -439,7 +439,7 @@ export default class Astar extends Component {
           </div>
           <div
             ref={element => (this.tilesMap = d3.select(element))}
-            style={{ maxWidth: "1632px", maxHeight: "761px", margin: "0 auto" }}
+            className="responsive-svg-container"
           />
         </Segment>
         <Message
@@ -455,7 +455,7 @@ export default class Astar extends Component {
               Source code
             </a>,
             <p key="wiki_link">
-              More information Astar search algorithm{" "}
+              More information on Astar Search Algorithm{" "}
               <a
                 href="https://en.wikipedia.org/wiki/A*_search_algorithm "
                 target="_blank"
