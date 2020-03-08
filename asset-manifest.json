@@ -1,28 +1,26 @@
 {
   "files": {
-    "main.css": "/js-visualize/static/css/main.926e04e4.chunk.css",
-    "main.js": "/js-visualize/static/js/main.e2e3c9a5.chunk.js",
-    "main.js.map": "/js-visualize/static/js/main.e2e3c9a5.chunk.js.map",
+    "main.css": "/js-visualize/static/css/main.949fc359.chunk.css",
+    "main.js": "/js-visualize/static/js/main.ffcc1b8c.chunk.js",
+    "main.js.map": "/js-visualize/static/js/main.ffcc1b8c.chunk.js.map",
     "runtime-main.js": "/js-visualize/static/js/runtime-main.54f6993d.js",
     "runtime-main.js.map": "/js-visualize/static/js/runtime-main.54f6993d.js.map",
-    "static/css/2.5e870e19.chunk.css": "/js-visualize/static/css/2.5e870e19.chunk.css",
-    "static/js/2.3a79e39f.chunk.js": "/js-visualize/static/js/2.3a79e39f.chunk.js",
-    "static/js/2.3a79e39f.chunk.js.map": "/js-visualize/static/js/2.3a79e39f.chunk.js.map",
+    "static/css/2.9af5590f.chunk.css": "/js-visualize/static/css/2.9af5590f.chunk.css",
+    "static/js/2.1a0f0862.chunk.js": "/js-visualize/static/js/2.1a0f0862.chunk.js",
+    "static/js/2.1a0f0862.chunk.js.map": "/js-visualize/static/js/2.1a0f0862.chunk.js.map",
     "index.html": "/js-visualize/index.html",
-    "precache-manifest.d1a0451f63edd8915b45f7106532b8b7.js": "/js-visualize/precache-manifest.d1a0451f63edd8915b45f7106532b8b7.js",
+    "precache-manifest.683c9a905f76a3eec028acb190e8d4e7.js": "/js-visualize/precache-manifest.683c9a905f76a3eec028acb190e8d4e7.js",
     "service-worker.js": "/js-visualize/service-worker.js",
-    "static/css/2.5e870e19.chunk.css.map": "/js-visualize/static/css/2.5e870e19.chunk.css.map",
-    "static/css/main.926e04e4.chunk.css.map": "/js-visualize/static/css/main.926e04e4.chunk.css.map",
-    "static/js/2.3a79e39f.chunk.js.LICENSE": "/js-visualize/static/js/2.3a79e39f.chunk.js.LICENSE",
-    "static/media/astar.gif": "/js-visualize/static/media/astar.024dd80b.gif",
-    "static/media/semantic.min.css": "/js-visualize/static/media/outline-icons.ef60a4f6.woff",
-    "static/media/bubble-sort.gif": "/js-visualize/static/media/bubble-sort.32c4295c.gif"
+    "static/css/2.9af5590f.chunk.css.map": "/js-visualize/static/css/2.9af5590f.chunk.css.map",
+    "static/css/main.949fc359.chunk.css.map": "/js-visualize/static/css/main.949fc359.chunk.css.map",
+    "static/js/2.1a0f0862.chunk.js.LICENSE": "/js-visualize/static/js/2.1a0f0862.chunk.js.LICENSE",
+    "static/media/semantic.min.css": "/js-visualize/static/media/outline-icons.ef60a4f6.woff"
   },
   "entrypoints": [
     "static/js/runtime-main.54f6993d.js",
-    "static/css/2.5e870e19.chunk.css",
-    "static/js/2.3a79e39f.chunk.js",
-    "static/css/main.926e04e4.chunk.css",
-    "static/js/main.e2e3c9a5.chunk.js"
+    "static/css/2.9af5590f.chunk.css",
+    "static/js/2.1a0f0862.chunk.js",
+    "static/css/main.949fc359.chunk.css",
+    "static/js/main.ffcc1b8c.chunk.js"
   ]
 }
