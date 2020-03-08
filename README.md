@@ -11,11 +11,15 @@ Runs the app in the development mode at [http://localhost:3000](http://localhost
 Built using [React](https://reactjs.org/), [D3](https://d3js.org/), [Semantic UI](https://react.semantic-ui.com/)
 
 Algorithms added so far:
+
 - Astar searching:
 
-![Astar path finding in action](https://github.com/farhankk360/js-visualize/blob/master/src/assets/astar/astar.gif)
+![Astar path finding in action](https://www.dropbox.com/s/twb7pq488vj0oza/astar.gif?raw=1)
 
 - Bubble sort with d3 force:
 
-![Bubble sort with d3 force and bubble chart](https://github.com/farhankk360/js-visualize/blob/master/src/assets/bubble-sort/bubble-sort.gif)
----
+![Bubble sort with d3 force and bubble chart](https://www.dropbox.com/s/0xiiu8sg1vd186m/bubble-sort.gif?raw=1)
+
+- Quck sort radial chart:
+
+![Visualize quick sort algorithm in d3 radial chart](https://www.dropbox.com/s/urojm5cbs2ooh72/quick-sort.gif?raw=1)

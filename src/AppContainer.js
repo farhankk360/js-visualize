@@ -14,10 +14,16 @@ import {
 } from "semantic-ui-react";
 import sections from "./routes";
 
-import HomeContainer from "./components/home/HomeContainer";
+import HomeContainer from "./components/HomeContainer";
 
 class AppContainer extends Component {
   state = { sidebarOpened: true, activeIndex: 0 };
+
+  componentDidMount() {
+    if (this.getWidth() <= 768) {
+      this.setState({ sidebarOpened: false });
+    }
+  }
 
   handleClick = (e, titleProps) => {
     const { index } = titleProps;
@@ -94,7 +100,7 @@ class AppContainer extends Component {
           />
           <Segment
             style={
-              sidebarOpened
+              sidebarOpened && !(this.getWidth() <= 768)
                 ? {
                     width: "calc(100% - 260px)"
                   }

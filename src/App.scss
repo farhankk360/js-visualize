@@ -24,6 +24,15 @@
   .accordion .content {
     padding: 0 !important;
   }
+  .accordion .content.active {
+    background-color: #131414;
+    .active.item {
+      background-color: #2185d0;
+    }
+    .active.item:hover {
+      background-color: #165c92;
+    }
+  }
 }
 
 .square {
@@ -37,31 +46,41 @@
 }
 
 .responsive-svg-container {
-  max-width: 1632px; 
-  max-height: 761px; 
+  max-width: 1632px;
+  max-height: 761px;
   margin: 0px auto;
 }
 
-.visual-array{
+.visual-array {
   background-color: darken($color: #242424, $amount: 0) !important;
-  width: fit-content ;
+  width: fit-content;
   margin: auto !important;
   color: white !important;
   opacity: 0.9;
-   pre{
+  pre {
     text-align: center;
     font-size: 24px;
     font-weight: 300;
-      .array-element {
-        color: #2196f3;
-      }
-   }
+    .array-element {
+      color: #2196f3;
+    }
+  }
 }
 
-.main-grid-image{
+@media only screen and (max-width: 1366px) {
+  .visual-array pre {
+    font-size: 1.9vw;
+  }
+}
+
+.main-grid-image {
   max-width: 600px !important;
-    max-height: 350px;
-    margin: 0 auto;
-    width: 100%;
-    height: 100%;
+  max-height: 350px;
+  margin: 0 auto;
+  width: 100%;
+  height: 100%;
+}
+
+.quick-sort.col path {
+  transition: fill 0.2s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
