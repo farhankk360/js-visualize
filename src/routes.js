@@ -2,6 +2,7 @@ import React from "react";
 import Astar from "../src/components/PathFindingAlgos/Astar";
 import BubbleSort from "../src/components/SortingAlgos/BubbleSort";
 import QuickSort from "../src/components/SortingAlgos/QuickSort";
+import AudioVisualization from "../src/components/MusicVis/AudioVisualization";
 
 const sections = [
   {
@@ -42,6 +43,22 @@ const sections = [
         screenShot:
           "https://www.dropbox.com/s/8cqlb60mywv6ka9/quick-sort-screenshot.jpg?raw=1",
         component: props => <QuickSort {...props} />
+      }
+    ]
+  },
+  {
+    name: "Music",
+    routes: [
+      {
+        name: "Audio Visualizer",
+        title: "Visualize Audio using WebApi and d3",
+        description: "",
+        path: "/audio-visualization",
+        gif:
+          "https://www.dropbox.com/s/e18b80011i1hnep/audio-visualization.gif?raw=1",
+        screenShot:
+          "https://www.dropbox.com/s/xwriw5h9oo8vrq7/audio-visualization-screenshot.jpg?raw=1",
+        component: props => <AudioVisualization {...props} />
       }
     ]
   }

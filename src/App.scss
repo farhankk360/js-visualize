@@ -84,3 +84,18 @@
 .quick-sort.col path {
   transition: fill 0.2s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
+
+.visualizer-top-bar {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 10px 0 10px 0;
+  .btns {
+    margin: 10px 0 0px 0;
+  }
+}
+.audio-player {
+  display: flex;
+  align-items: center;
+}

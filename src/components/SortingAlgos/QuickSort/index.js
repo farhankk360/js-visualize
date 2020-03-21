@@ -126,7 +126,7 @@ export default class QuickSort extends Component {
       { label: "Swaped", color: "#21ba45" }
     ];
 
-    var legend = this.svg
+    const legend = this.svg
       .select("#group")
       .append("g")
       .attr("id", "labels")
