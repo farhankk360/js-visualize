@@ -23,3 +23,7 @@ Algorithms added so far:
 - Quck sort radial chart:
 
 ![Visualize quick sort algorithm in d3 radial chart](https://www.dropbox.com/s/urojm5cbs2ooh72/quick-sort.gif?raw=1)
+
+- Audio Visualizer:
+
+![Visualize audio using mp3 file or use any link from youtube](https://www.dropbox.com/s/e18b80011i1hnep/audio-visualization.gif?raw=1)
