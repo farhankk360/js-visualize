@@ -9,7 +9,6 @@ import {
   Popup,
   Input
 } from "semantic-ui-react";
-import axios from "axios";
 
 export default class AudioVisualization extends Component {
   state = {
@@ -28,8 +27,6 @@ export default class AudioVisualization extends Component {
     this.audioElement.onloadstart = () => this.setState({ inProgress: true });
     this.audioElement.oncanplay = () => this.setState({ inProgress: false });
     this.audioElement.onwaiting = () => this.setState({ inProgress: true });
-
-    this.getDefaultAudioFile();
 
     this.initAudioContext(this.audioElement);
     this.prepareVisualizer();
@@ -187,25 +184,6 @@ export default class AudioVisualization extends Component {
     }
   };
 
-  getDefaultAudioFile = () => {
-    this.setState({ inProgress: true });
-    axios
-      .get(
-        "https://www.dropbox.com/s/tg2axtfwau4kc36/nightingale-ver-2.mp3?raw=1",
-        {
-          responseType: "blob"
-        }
-      )
-      .then(data => {
-        this.audioElement.src = URL.createObjectURL(data.data);
-        this.audioElement.play();
-
-        this.randomeColor();
-        this.setState({ inProgress: false });
-      })
-      .catch(err => this.setState({ inProgress: false }));
-  };
-
   render() {
     let {
       width,
@@ -232,6 +210,9 @@ export default class AudioVisualization extends Component {
               <audio
                 id="audioElement"
                 ref={element => (this.audioElement = element)}
+                src={
+                  "https://dl.dropbox.com/s/tg2axtfwau4kc36/nightingale-ver-2.mp3"
+                }
                 controls
                 controlsList="nodownload"
                 crossOrigin="anonymous"
@@ -339,6 +320,26 @@ export default class AudioVisualization extends Component {
                 rel="noopener noreferrer"
               >
                 Git repo
+              </a>
+            </p>,
+            <p key="youtube-profile">
+              Visit my Youtube music{" "}
+              <a
+                href="https://www.youtube.com/farhankk360"
+                target="_blank"
+                without="true"
+                rel="noopener noreferrer"
+              >
+                channel
+              </a>
+              &nbsp;for more music, Default audio track &nbsp;
+              <a
+                href="https://www.youtube.com/watch?v=vwBkZAbEiEU"
+                target="_blank"
+                without="true"
+                rel="noopener noreferrer"
+              >
+                Nightingale Ver 2.0 (Sampled)
               </a>
             </p>,
             <p key="wiki_link">
