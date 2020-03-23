@@ -34,7 +34,7 @@ export default class AudioVisualization extends Component {
 
   initAudioContext = audioElement => {
     //init audioContext
-    this.audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+    this.audioCtx = new (window.webkitAudioContext || window.AudioContext)();
     this.audioSrc = this.audioCtx.createMediaElementSource(audioElement);
     this.analyser = this.audioCtx.createAnalyser();
 
@@ -145,7 +145,9 @@ export default class AudioVisualization extends Component {
   };
 
   fileChange = e => {
-    this.setState({ file: e.target.files[0] }, () => {
+    const file = e.target.files[0];
+
+    this.setState({ file, audioTitle: file.name }, () => {
       this.audioElement.src = URL.createObjectURL(this.state.file);
       this.audioElement.play();
 
@@ -153,35 +155,54 @@ export default class AudioVisualization extends Component {
     });
   };
 
-  validateYouTubeUrl = url => {
-    if (url != undefined || url != "") {
-      const regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|\&v=|\?v=)([^#\&\?]*).*/;
-      const match = url.match(regExp);
-
-      if (match && match[2].length == 11) {
-        return match[2];
-      } else {
-        return false;
-      }
-    }
-  };
-
   submitYtUrl = e => {
     const { ytUrl } = this.state;
 
-    const videoId = this.validateYouTubeUrl(ytUrl);
+    this.setState({ inProgress: true });
 
-    if (videoId) {
-      const newSource = `${process.env.REACT_APP_YT_AUDIO_STREAM_BASE_URL}/${videoId}`;
-      this.audioElement.src = newSource;
-      this.audioElement.play();
+    const basePath =
+      process.env.NODE_ENV === "production"
+        ? `${process.env.REACT_APP_YT_AUDIO_STREAM_BASE_URL}`
+        : "http://localhost:5000";
 
-      this.randomeColor();
+    fetch(`${basePath}/api/stream/audio`, {
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json"
+      },
+      method: "POST",
+      body: JSON.stringify({ url: ytUrl })
+    })
+      .then(response => response.json())
+      .then(data => {
+        if (data.success) {
+          const { url, title } = data;
 
-      this.setState({ isYtUrlPopOpen: false });
-    } else {
-      this.setState({ inValidYtUrl: true });
-    }
+          this.audioElement.src = url;
+          this.audioElement.play();
+
+          this.randomeColor();
+
+          this.setState({
+            isYtUrlPopOpen: false,
+            audioTitle: title,
+            inProgress: false
+          });
+        } else {
+          this.setState({
+            inValidYtUrl: true,
+            errorMessage: data.error,
+            inProgress: false
+          });
+        }
+      })
+      .catch(err => {
+        this.setState({
+          inValidYtUrl: true,
+          errorMessage: err.error,
+          inProgress: false
+        });
+      });
   };
 
   render() {
@@ -191,7 +212,9 @@ export default class AudioVisualization extends Component {
       inProgress,
       ytUrl,
       inValidYtUrl,
-      isYtUrlPopOpen
+      isYtUrlPopOpen,
+      errorMessage,
+      audioTitle
     } = this.state;
     return (
       <>
@@ -202,6 +225,11 @@ export default class AudioVisualization extends Component {
               Visualize audio frequencies using WebApi and d3.
             </Header.Subheader>
           </Header>
+          {audioTitle && (
+            <marquee id="title-scroller" width="300px" direction="left">
+              {audioTitle}
+            </marquee>
+          )}
           <div className="visualizer-top-bar">
             <div className="audio-player">
               {inProgress && (
@@ -221,8 +249,6 @@ export default class AudioVisualization extends Component {
 
             <div className="btns">
               <Button
-                content="Choose a File"
-                labelPosition="right"
                 icon="file"
                 onClick={() => this.fileInputRef.current.click()}
               />
@@ -241,13 +267,7 @@ export default class AudioVisualization extends Component {
                 open={isYtUrlPopOpen}
                 onClose={() => this.setState({ isYtUrlPopOpen: false })}
                 onOpen={() => this.setState({ isYtUrlPopOpen: true })}
-                trigger={
-                  <Button
-                    content="Choose External Source"
-                    icon="youtube"
-                    labelPosition="right"
-                  />
-                }
+                trigger={<Button icon="youtube" />}
               >
                 <Input
                   action={{ icon: "search", onClick: this.submitYtUrl }}
@@ -259,10 +279,11 @@ export default class AudioVisualization extends Component {
                     this.setState({ ytUrl: e.target.value });
 
                     if (inValidYtUrl) {
-                      this.setState({ inValidYtUrl: false });
+                      this.setState({ inValidYtUrl: false, errorMessage: "" });
                     }
                   }}
                 />
+                {errorMessage && <p style={{ color: "red" }}>{errorMessage}</p>}
                 <div
                   style={{
                     fontSize: "14px",
@@ -273,7 +294,7 @@ export default class AudioVisualization extends Component {
                 >
                   Youtube audio streaming server hosted on &nbsp;
                   <a
-                    href="https://glitch.com/~ytaudio-stream"
+                    href="https://yt-audio-stream.glitch.me"
                     target="_blank"
                     without="true"
                     rel="noopener noreferrer"
@@ -283,12 +304,7 @@ export default class AudioVisualization extends Component {
                 </div>
               </Popup>
 
-              <Button
-                content="Random Color"
-                icon="random"
-                labelPosition="right"
-                onClick={this.randomeColor}
-              />
+              <Button icon="random" onClick={this.randomeColor} />
             </div>
           </div>
           <div className="responsive-svg-container">

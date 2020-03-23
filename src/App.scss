@@ -87,15 +87,16 @@
 
 .visualizer-top-bar {
   display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
+  flex-wrap: wrap;
   margin: 10px 0 10px 0;
   .btns {
-    margin: 10px 0 0px 0;
+    margin: 0 0 0 10px;
   }
 }
 .audio-player {
   display: flex;
   align-items: center;
+  margin: 10px 0 5px 0;
 }
