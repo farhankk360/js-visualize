@@ -32,7 +32,7 @@ export default class AudioVisualization extends Component {
     this.prepareVisualizer();
   }
 
-  initAudioContext = audioElement => {
+  initAudioContext = (audioElement) => {
     //init audioContext
     this.audioCtx = new (window.webkitAudioContext || window.AudioContext)();
     this.audioSrc = this.audioCtx.createMediaElementSource(audioElement);
@@ -69,7 +69,7 @@ export default class AudioVisualization extends Component {
     const { width, height } = this.state;
 
     const stack = d3.stack().keys(
-      d3.range(8).map(function(sample) {
+      d3.range(8).map(function (sample) {
         return "sample" + sample;
       })
     );
@@ -86,8 +86,8 @@ export default class AudioVisualization extends Component {
       .scaleLinear()
       .domain([
         0,
-        d3.max(layers, function(layer) {
-          return d3.max(layer, function(d) {
+        d3.max(layers, function (layer) {
+          return d3.max(layer, function (d) {
             return d[0];
           });
         })
@@ -99,8 +99,8 @@ export default class AudioVisualization extends Component {
     const area = d3
       .area()
       .x((d, i) => xScale(i))
-      .y0(d => yScale(d[0]))
-      .y1(d => yScale(d[1]));
+      .y0((d) => yScale(d[0]))
+      .y1((d) => yScale(d[1]));
 
     this.svg
       .selectAll("path")
@@ -121,8 +121,8 @@ export default class AudioVisualization extends Component {
     // override the initial y scale to make it dynamic
     yScale.domain([
       0,
-      d3.max(layers, function(layer) {
-        return d3.max(layer, function(d) {
+      d3.max(layers, function (layer) {
+        return d3.max(layer, function (d) {
           return d[1];
         });
       })
@@ -144,7 +144,7 @@ export default class AudioVisualization extends Component {
       .style("fill", () => color(Math.random()));
   };
 
-  fileChange = e => {
+  fileChange = (e) => {
     const file = e.target.files[0];
 
     this.setState({ file, audioTitle: file.name }, () => {
@@ -155,7 +155,7 @@ export default class AudioVisualization extends Component {
     });
   };
 
-  submitYtUrl = e => {
+  submitYtUrl = (e) => {
     const { ytUrl } = this.state;
 
     this.setState({ inProgress: true });
@@ -173,8 +173,8 @@ export default class AudioVisualization extends Component {
       method: "POST",
       body: JSON.stringify({ url: ytUrl })
     })
-      .then(response => response.json())
-      .then(data => {
+      .then((response) => response.json())
+      .then((data) => {
         if (data.success) {
           const { url, title } = data;
 
@@ -196,7 +196,7 @@ export default class AudioVisualization extends Component {
           });
         }
       })
-      .catch(err => {
+      .catch((err) => {
         this.setState({
           inValidYtUrl: true,
           errorMessage: err.error,
@@ -220,7 +220,7 @@ export default class AudioVisualization extends Component {
       <>
         <Segment textAlign="center">
           <Header as="h3" className="title">
-            Auido Visualizer
+            Audio Visualizer
             <Header.Subheader className="desc">
               Visualize audio frequencies using WebApi and d3.
             </Header.Subheader>
@@ -237,7 +237,7 @@ export default class AudioVisualization extends Component {
               )}
               <audio
                 id="audioElement"
-                ref={element => (this.audioElement = element)}
+                ref={(element) => (this.audioElement = element)}
                 src={
                   "https://dl.dropbox.com/s/tg2axtfwau4kc36/nightingale-ver-2.mp3"
                 }
@@ -275,7 +275,7 @@ export default class AudioVisualization extends Component {
                   error={inValidYtUrl}
                   placeholder="Paste in youtube video url"
                   value={ytUrl}
-                  onChange={e => {
+                  onChange={(e) => {
                     this.setState({ ytUrl: e.target.value });
 
                     if (inValidYtUrl) {
@@ -311,7 +311,7 @@ export default class AudioVisualization extends Component {
             <svg
               viewBox={`0 0 ${width} ${height}`}
               style={{ font: "10px", maxWidth: width, maxHeight: height }}
-              ref={element => (this.svg = d3.select(element))}
+              ref={(element) => (this.svg = d3.select(element))}
             ></svg>
           </div>
         </Segment>
