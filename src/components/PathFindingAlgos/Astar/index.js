@@ -159,10 +159,10 @@ export default class Astar extends Component {
       .attr("class", "row")
       //Cols
       .selectAll(".square")
-      .data(tile => tile)
+      .data((tile) => tile)
       .enter()
       .append("rect")
-      .attr("class", tile => {
+      .attr("class", (tile) => {
         if (tile.from) {
           return "square from";
         }
@@ -171,12 +171,12 @@ export default class Astar extends Component {
         }
         return "square";
       })
-      .attr("id", tile => tile.id)
-      .attr("x", tile => tile.x)
-      .attr("y", tile => tile.y)
-      .attr("width", tile => tile.width)
-      .attr("height", tile => tile.height)
-      .style("fill", tile => {
+      .attr("id", (tile) => tile.id)
+      .attr("x", (tile) => tile.x)
+      .attr("y", (tile) => tile.y)
+      .attr("width", (tile) => tile.width)
+      .attr("height", (tile) => tile.height)
+      .style("fill", (tile) => {
         if (tile.from) {
           return "#2C93E8";
         }
@@ -255,13 +255,9 @@ export default class Astar extends Component {
             }
           });
 
-          d3.selectAll(".from")
-            .classed("from", false)
-            .style("fill", "#fff");
+          d3.selectAll(".from").classed("from", false).style("fill", "#fff");
 
-          d3.select(element)
-            .classed("from", true)
-            .style("fill", "#2C93E8");
+          d3.select(element).classed("from", true).style("fill", "#2C93E8");
         }
       }
 
@@ -324,7 +320,7 @@ export default class Astar extends Component {
             temp = temp.previous;
           }
 
-          path.forEach(p => {
+          path.forEach((p) => {
             if (p.from || p.destination) {
               return;
             }
@@ -378,7 +374,7 @@ export default class Astar extends Component {
         }
       }
 
-      await new Promise(resolve => setTimeout(resolve, 5));
+      await new Promise((resolve) => setTimeout(resolve, 5));
     }
   };
 
@@ -438,7 +434,7 @@ export default class Astar extends Component {
             </Button>
           </div>
           <div
-            ref={element => (this.tilesMap = d3.select(element))}
+            ref={(element) => (this.tilesMap = d3.select(element))}
             className="responsive-svg-container"
           />
         </Segment>
@@ -447,7 +443,7 @@ export default class Astar extends Component {
           list={[
             <a
               key="source_code"
-              href="https://github.com/farhankk360/js-visualize/blob/master/src/components/PathFindingAlgos/Astar/Astart.js"
+              href="https://github.com/farhankk360/js-visualize/blob/master/src/components/PathFindingAlgos/Astar/index.js"
               target="_blank"
               without="true"
               rel="noopener noreferrer"
