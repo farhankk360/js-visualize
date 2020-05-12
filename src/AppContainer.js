@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Route, withRouter, Switch, Link } from "react-router-dom";
+import ReactGA from "react-ga";
 import {
   HeaderComponent,
   FooterComponent
@@ -20,6 +21,15 @@ class AppContainer extends Component {
   state = { sidebarOpened: true, activeIndex: 0 };
 
   componentDidMount() {
+    const { history } = this.props;
+
+    ReactGA.initialize(process.env.REACT_APP_GA_ID);
+    ReactGA.pageview(history.location.pathname);
+
+    history.listen((location) => {
+      ReactGA.pageview(location.pathname);
+    });
+
     if (this.getWidth() <= 768) {
       this.setState({ sidebarOpened: false });
     }
@@ -117,8 +127,8 @@ class AppContainer extends Component {
                 render={() => <HomeContainer {...this.props} />}
               />
 
-              {sections.map(section =>
-                section.routes.map(route => (
+              {sections.map((section) =>
+                section.routes.map((route) => (
                   <Route
                     exact
                     path={
@@ -126,7 +136,7 @@ class AppContainer extends Component {
                         ? process.env.PUBLIC_URL + route.path
                         : route.path
                     }
-                    render={props => route.component(props)}
+                    render={(props) => route.component(props)}
                   />
                 ))
               )}
